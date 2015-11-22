@@ -20,8 +20,10 @@ The original data used in my script was downloaded from this URL:
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
 "tidy_data.txt" includes a subset of the variables/columns from the original study dataset.
-This subset includes all the mean and standard deviation observations.
-The observations in tidy_test are the means of all the observations from the original dataset.
+This subset includes only variables that were means or standard deviations.
+
+“tidy_data.txt” is grouped by Subject and Activity Test.  For each Subject and for each Activity Test, a mean of the variable is provided as an observation.
+
 
 Below is a list of all the columns/variables in the "tidy_dta.txt" dataset:
 
