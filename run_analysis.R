@@ -59,12 +59,14 @@ train_merge <- cbind(subject_train[,1], train_y_data[,1], train_x_subset2)
 
 
 ##Rename Subject and Activity Test Columns
-test_merge <- rename(test_merge, c("test_y_data[, 1]"="Activity_Test", "subject_test[, 1]"="Subject"))
-train_merge <- rename(train_merge, c("train_y_data[, 1]"="Activity_Test", "subject_train[, 1]"="Subject"))
+#test_merge <- rename(test_merge, c("test_y_data[, 1]"="Activity_Test", "subject_test[, 1]"="Subject"))
+names (test_merge)[1] <- "Subject"
+names (test_merge)[2] <- "Activity_Test"
+##train_merge <- rename(train_merge, c("train_y_data[, 1]"="Activity_Test", "subject_train[, 1]"="Subject"))
+names (train_merge)[1] <- "Subject"
+names (train_merge)[2] <- "Activity_Test"
 
 
-##Renumber Test Subject to create Unique Subject Numbers
-test_merge$Subject <- test_merge$Subject + 29
 
 ## Merge Test and Train Datasets
 merged_all <- rbind(train_merge, test_merge)
@@ -72,14 +74,13 @@ merged_all <- rbind(train_merge, test_merge)
 
 
 ##Turn Activity Test into factor with names into new data farme "merged_all2"
-merged_all2$Activity_Test <- factor(merged_all2$Activity_Test, labels = c("WALKING", "WALKING_UPSTAIRS", "WALKING_DOWNSTAIRS", "SITTING", "STANDING", "LAYING"))
+merged_all$Activity_Test <- factor(merged_all$Activity_Test, labels = c("WALKING", "WALKING_UPSTAIRS", "WALKING_DOWNSTAIRS", "SITTING", "STANDING", "LAYING"))
 
 
 ##Group by Subject
-subject_group <- group_by(merged_all2, Subject, Activity_Test)
+subject_group <- group_by(merged_all, Subject, Activity_Test)
 temp_set <- select(subject_group, -(Subject:Activity_Test))
 tidy_data <- summarise_each(temp_set, funs(mean))
 
 ##Write dataset to a file
-write.csv(tidy_data, file = "tidy_data.csv")
-
+write.table(tidy_data, file="tidy_data.txt", row.names = FALSE)
