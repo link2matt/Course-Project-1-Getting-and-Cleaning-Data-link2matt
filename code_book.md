@@ -1,4 +1,4 @@
-Code Book for Course Project for "Getting and Cleaning Data"
+#Code Book for Course Project for "Getting and Cleaning Data"
 This project was submitted by the user link2matt
 
 This Code Book describes the data in the data set "tidy_data.txt".
