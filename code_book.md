@@ -24,6 +24,7 @@ This subset includes all the mean and standard deviation observations.
 The observations in tidy_test are the means of all the observations from the original dataset.
 
 Below is a list of all the columns/variables in the "tidy_dta.txt" dataset:
+
 [1] "Subject"                         "Activity_Test"                   "tBodyAcc-mean()-X"               "tBodyAcc-mean()-Y"              
  [5] "tBodyAcc-mean()-Z"               "tBodyAcc-std()-X"                "tBodyAcc-std()-Y"                "tBodyAcc-std()-Z"               
  [9] "tGravityAcc-mean()-X"            "tGravityAcc-mean()-Y"            "tGravityAcc-mean()-Z"            "tGravityAcc-std()-X"            
